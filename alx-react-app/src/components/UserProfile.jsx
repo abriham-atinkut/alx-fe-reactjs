@@ -1,16 +1,15 @@
-import React from "react";
+import React from 'react'
 
 function UserProfile(props) {
-  let { name, age, bio } = props;
   return (
     <div>
       <div>
-        <h2>{name}</h2>
-        <p>Age: {age}</p>
-        <p>Bio: {bio}</p>
+        <h2>{props.name}</h2>
+        <p>Age: {props.age}</p>
+        <p>Bio: {props.bio}</p>
       </div>
     </div>
   );
 }
 
-export default UserProfile;
+export default UserProfile
