@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="nav" style={{ backgroundColor: "black", padding: "5vh" , justifyContent: "center"}}>
+    <div className="nav" style={{ backgroundColor: "black", padding: "5vh" , justifyContent: "center", display: "flex"}}>
       <Link
         to="/"
         style={{ color: "blue", padding: "10px", textDecoration: "none" }}
