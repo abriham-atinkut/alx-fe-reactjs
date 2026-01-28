@@ -1,9 +1,13 @@
 import "./App.css";
+import AddRecipeForm from "./components/AddRecipeForm ";
+import RecipeList from "./components/RecipeList ";
 
 function App() {
   return (
     <>
       <h1>Hello</h1>
+      <AddRecipeForm />
+      <RecipeList />
     </>
   );
 }
