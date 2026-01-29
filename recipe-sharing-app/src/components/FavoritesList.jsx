@@ -1,12 +1,15 @@
 import useRecipeStore from "./recipeStore";
+import { Link } from "react-router-dom";
 
-function FavoritesList() {
-  const recipes = useRecipeStore((state) => state.recipes);
+const FavoritesList = () => {
   const favorites = useRecipeStore((state) => state.favorites);
+  const recipes = useRecipeStore((state) => state.recipes);
 
-  const favoriteRecipes = recipes.filter((recipe) =>
-    favorites.includes(recipe.id),
-  );
+  console.log("Favorites IDs:", favorites);
+  
+  const favoriteRecipes = favorites
+    .map((id) => recipes.find((recipe) => recipe.id === id))
+    .filter(Boolean); // 🔥 IMPORTANT
 
   if (favoriteRecipes.length === 0) {
     return <p>No favorite recipes yet</p>;
@@ -17,12 +20,11 @@ function FavoritesList() {
       <h2>My Favorites</h2>
       {favoriteRecipes.map((recipe) => (
         <div key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
+          <Link to={`/${recipe.id}`}>{recipe.title}</Link>
         </div>
       ))}
     </div>
   );
-}
+};
 
 export default FavoritesList;

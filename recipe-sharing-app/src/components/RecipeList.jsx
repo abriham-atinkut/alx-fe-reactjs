@@ -1,10 +1,10 @@
 import useRecipeStore from "./recipeStore";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
   const searchTerm = useRecipeStore((state) => state.searchTerm);
-
+  const navigate = useNavigate();
   const filteredRecipes = recipes.filter((recipe) =>
     recipe.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
@@ -14,15 +14,19 @@ const RecipeList = () => {
   }
 
   return (
-    <div>
-      {filteredRecipes.map((recipe) => (
-        <div key={recipe.id}>
-          <h1>
-            <Link to={`/${recipe.id}`}>{recipe.title}</Link>
-          </h1>
-        </div>
-      ))}
-    </div>
+    <>
+    <br />
+      <button onClick={() => navigate("/favorites")}>Favorites</button>
+      <div>
+        {filteredRecipes.map((recipe) => (
+          <div key={recipe.id}>
+            <h1>
+              <Link to={`/${recipe.id}`}>{recipe.title}</Link>
+            </h1>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
