@@ -7,7 +7,8 @@ const useRecipeStore = create((set) => ({
       recipes: [...state.recipes, newRecipe],
     })),
 
-  setRecipes: (recipes) => set({ recipes }),
+  // setRecipes: (recipes) => set({ recipes }),
+
   deleteRecipe: (id) =>
     set((state) => ({
       recipes: state.recipes.filter((recipe) => recipe.id != id),
@@ -19,6 +20,9 @@ const useRecipeStore = create((set) => ({
         recipe.id === id ? { ...recipe, ...updatedFields } : recipe,
       ),
     })),
+
+  searchTerm: "",
+  setSearchTerm: (term) => set({ searchTerm: term }),
 }));
 
 export default useRecipeStore;
