@@ -35,6 +35,17 @@ const useRecipeStore = create((set) => ({
     set((state) => ({
       favorites: state.favorites.filter((favId) => favId !== id),
     })),
+
+  recommendations: [],
+
+  generateRecommendations: () =>
+    set((state) => {
+      const recommended = state.recipes.filter(
+        (recipe) => !state.favorites.includes(recipe.id),
+      );
+
+      return { recommendations: recommended };
+    }),
 }));
 
 export default useRecipeStore;

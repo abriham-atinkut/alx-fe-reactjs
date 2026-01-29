@@ -15,8 +15,11 @@ const RecipeList = () => {
 
   return (
     <>
-    <br />
+      <br />
       <button onClick={() => navigate("/favorites")}>Favorites</button>
+      <button onClick={() => navigate("recommendations")}>
+        Recommendations
+      </button>
       <div>
         {filteredRecipes.map((recipe) => (
           <div key={recipe.id}>
