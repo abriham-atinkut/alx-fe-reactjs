@@ -1,11 +1,10 @@
 import "./App.css";
-
+import {Route, Routes} from 'react-router-dom'
 function App() {
   return (
-    <>
-      <h2>hellow</h2>
-      <h2>hellow</h2>
-    </>
+    <Routes>
+      
+    </Routes>
   );
 }
 
