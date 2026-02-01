@@ -1,10 +1,9 @@
 import "./App.css";
-import {Route, Routes} from 'react-router-dom'
+import Search from "./components/Search";
+
 function App() {
   return (
-    <Routes>
-      
-    </Routes>
+    <Search/>
   );
 }
 
