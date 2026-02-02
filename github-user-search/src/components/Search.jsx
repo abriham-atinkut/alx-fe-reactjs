@@ -10,13 +10,10 @@ const Search = () => {
 
   async function fetchUser() {
     try {
-      console.log(search, location, minRepos);
       const data = await fetchUserData(search, location, minRepos);
       setUser(data);
-      console.log(data);
     } catch (err) {
       setError(err);
-      console.log(err);
     }
   }
 

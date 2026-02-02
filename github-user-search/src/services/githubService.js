@@ -26,7 +26,6 @@ const fetchUserData = async (searchTerm, location, minRepos) => {
     );
     return detailedUsers;
   } catch (err) {
-    console.log(err);
     throw err;
   }
 };
