@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://api.github.com/search/users";
+const BASE_URL = "https://api.github.com/search/users?q";
 
 const TOKEN = import.meta.env.VITE_APP_GITHUB_API_KEY;
 const fetchUserData = async (searchTerm, location, minRepos) => {
@@ -8,7 +8,7 @@ const fetchUserData = async (searchTerm, location, minRepos) => {
   if (minRepos) query += ` repos:>=${minRepos}`;
 
   try {
-    const response = await axios.get(`${BASE_URL}?q=${query}&per_page=10`, {
+    const response = await axios.get(`${BASE_URL}=${query}&per_page=10`, {
       headers: {
         Authorization: `token ${TOKEN}`,
       },
