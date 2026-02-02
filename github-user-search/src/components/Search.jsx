@@ -7,6 +7,7 @@ const Search = () => {
   const [error, setError] = useState(null);
   const [minRepos, setMinRepos] = useState("");
   const [location, setLocation] = useState("");
+
   async function fetchUser() {
     try {
       console.log(search, location, minRepos);
@@ -18,6 +19,7 @@ const Search = () => {
       console.log(err);
     }
   }
+
   useEffect(() => {
     if (user) {
       setError(null);
@@ -26,7 +28,7 @@ const Search = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // if (!event.trim()) return;
+    // if (!user.trim()) return;
     fetchUser();
     setSearch("");
     setMinRepos("");
