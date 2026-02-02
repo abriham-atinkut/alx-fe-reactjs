@@ -28,7 +28,7 @@ const Search = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // if (!user.trim()) return;
+    if (!search.trim() && !minRepos.trim() && !location.trim()) return;
     fetchUser();
     setSearch("");
     setMinRepos("");
@@ -36,30 +36,41 @@ const Search = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="text-center pt-6 px-10">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-4"
+      >
         <input
           type="text"
           placeholder="Search username"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          className="border p-2 flex-1"
         />
         <input
           type="text"
           placeholder="Filter by location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
+          className="border p-2 flex-1"
         />
         <input
           type="text"
           placeholder="Minimum repositories"
           value={minRepos}
           onChange={(e) => setMinRepos(e.target.value)}
+          className="border p-2 flex-1"
         />
 
-        <button type="submit">Search</button>
+        <button
+          type="submit"
+          className="rounded-md bg-blue-500 text-white px-4 py-2 hover:bg-blue-700 hover:shadow-lg transition duration-300 ease-in-out"
+        >
+          Search
+        </button>
       </form>
-  
+
       {!user ? (
         <p>Loading...</p>
       ) : user.length === 0 ? (
@@ -67,20 +78,26 @@ const Search = () => {
       ) : error ? (
         <p>Looks like we cant find the user</p>
       ) : user ? (
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-4">
           {user.map((user) => (
-            <div key={user.id}>
-              <h2>{user.login}</h2>
-              <p>Location: {user.location}</p>
-              <p>Repos: {user.public_repos}</p>
-              <a href={user.html_url} target="_blank">
+            <div key={user.id} className="border-2">
+              <h2 className="">
+                Name:<span className="font-medium"> {user.login}</span>
+              </h2>
+              <p className="">Location: {user.location}</p>
+              <p className="">Repos: {user.public_repos}</p>
+              <a
+                href={user.html_url}
+                target="_blank"
+                className="inline-block py-1 text-blue-600 hover:text-blue-700 hover:font-medium"
+              >
                 View Profile
               </a>
             </div>
           ))}
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 
