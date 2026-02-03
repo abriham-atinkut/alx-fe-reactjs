@@ -70,15 +70,22 @@ const Search = () => {
       </form>
 
       {!user ? (
-        <p>Loading...</p>
+        <p className="my-6 text-lg font-semibold">Loading...</p>
       ) : user.length === 0 ? (
-        <p> we cant find the user</p>
+        <p className="my-6 text-lg font-semibold">
+          Looks like we can't find the user. That is what we know for now.
+        </p>
       ) : error ? (
-        <p>Looks like we cant find the user</p>
+        <p className="my-6 text-lg font-semibold">
+          Looks like we can't find the user.
+        </p>
       ) : user ? (
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-4">
           {user.map((user) => (
-            <div key={user.id} className="border-2 rounded-lg shadow bg-gray-200 hover:bg-gray-300">
+            <div
+              key={user.id}
+              className="border-2 rounded-lg shadow bg-gray-200 hover:bg-gray-300"
+            >
               <h2 className="">
                 Name:<span className="font-medium"> {user.login}</span>
               </h2>
