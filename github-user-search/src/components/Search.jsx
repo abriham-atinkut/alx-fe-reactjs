@@ -34,6 +34,7 @@ const Search = () => {
 
   return (
     <div className="text-center pt-6 px-10">
+      <h1 className="font-bold mb-2 text-4xl">GitHub User Search</h1>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-4"
@@ -77,7 +78,7 @@ const Search = () => {
       ) : user ? (
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-4">
           {user.map((user) => (
-            <div key={user.id} className="border-2">
+            <div key={user.id} className="border-2 rounded shadow bg-gray-200 hover:bg-gray-300">
               <h2 className="">
                 Name:<span className="font-medium"> {user.login}</span>
               </h2>
