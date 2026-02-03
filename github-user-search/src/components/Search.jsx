@@ -78,12 +78,12 @@ const Search = () => {
       ) : user ? (
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-4">
           {user.map((user) => (
-            <div key={user.id} className="border-2 rounded shadow bg-gray-200 hover:bg-gray-300">
+            <div key={user.id} className="border-2 rounded-lg shadow bg-gray-200 hover:bg-gray-300">
               <h2 className="">
                 Name:<span className="font-medium"> {user.login}</span>
               </h2>
-              <p className="">Location: {user.location}</p>
-              <p className="">Repos: {user.public_repos}</p>
+              <p>Location: {user.location}</p>
+              <p>Repos: {user.public_repos}</p>
               <a
                 href={user.html_url}
                 target="_blank"
