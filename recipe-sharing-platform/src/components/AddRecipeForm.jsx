@@ -29,8 +29,11 @@ const AddRecipeForm = () => {
   };
   return (
     <>
-      <div className="flex items-center justify-center h-screen">
-        <form onSubmit={handleSubmit} className="p-6 rounded shadow-lg">
+      <div className="flex items-center justify-center min-h-screen">
+        <form
+          onSubmit={handleSubmit}
+          className="p-6 rounded shadow-lg w-full max-w-md sm:max-w-md md:max-w-xl"
+        >
           <h2 className="text-2xl mb-4 text-center font-bold">Add Recipe</h2>
           {errors && <span className="text-red-600">Enter full Recipe!</span>}
           {validate && (
