@@ -21,11 +21,11 @@ const RecipeDetail = () => {
         <img
           src={singleRecipe.image}
           alt={singleRecipe.title}
-          className="mx-auto rounded-lg my-6 md:scale-110 md:my-8 lg:my-10 hover:scale-110 hover:md:scale-125 transition-transform duration-500"
+          className="mx-auto rounded-lg my-6 md:scale-110 md:my-8 lg:my-10 hover:scale-110 hover:md:scale-125 transition-transform duration-500 shadow-md"
         />
         <div className="gap-y-5 bg-slate-200 p-4">
           <p>
-            <span className="font-bold">Name: </span> {singleRecipe.title}
+            <span className="font-bold text-lg">Name: </span> {singleRecipe.title}
           </p>
           <p>
             <span className="font-bold">Summary: </span> {singleRecipe.summary}
