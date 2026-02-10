@@ -4,6 +4,8 @@ const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredient] = useState("");
   const [steps, setSteps] = useState("");
+  const [errors, setErrors] = useState(false);
+  const [validate, setValidata] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,17 +16,26 @@ const AddRecipeForm = () => {
       !ingredients.trim() ||
       !steps.trim() ||
       word.length == 1
-    )
+    ) {
+      setErrors(true);
+      setValidata(false);
       return;
+    }
     setTitle("");
     setIngredient("");
     setSteps("");
+    setErrors(false);
+    setValidata(true);
   };
   return (
     <>
       <div className="flex items-center justify-center h-screen">
         <form onSubmit={handleSubmit} className="p-6 rounded shadow-lg">
           <h2 className="text-2xl mb-4 text-center font-bold">Add Recipe</h2>
+          {errors && <span className="text-red-600">Enter full Recipe!</span>}
+          {validate && (
+            <span className="text-green-600">Recipe is Submited!</span>
+          )}
           <div className="mb-4">
             <label className="block">Title:</label>
             <input
