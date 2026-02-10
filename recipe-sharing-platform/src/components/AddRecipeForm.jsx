@@ -3,19 +3,19 @@ import { useState } from "react";
 const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredient, setIngredient] = useState("");
-  const [prepatation, setPreparation] = useState("");
+  const [steps, setSteps] = useState("");
 
-  const submitChecker = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     setTitle("");
     setIngredient("");
-    setPreparation("");
+    setSteps("");
   };
   return (
     <>
       <div className="flex items-center justify-center h-screen">
-        <form onSubmit={submitChecker} className="p-6 rounded shadow-lg">
+        <form onSubmit={handleSubmit} className="p-6 rounded shadow-lg">
           <h2 className="text-2xl mb-4 text-center font-bold">Add Recipe</h2>
           <div className="mb-4">
             <label className="block">Title:</label>
@@ -29,19 +29,16 @@ const AddRecipeForm = () => {
           <div className="mb-4">
             <label className="block">Ingredients:</label>
             <textarea
-              name="ingredients"
               className="border-2  w-full focus:border-green-400 focus:outline-none rounded-md"
               value={ingredient}
               onChange={(e) => setIngredient(e.target.value)}
             ></textarea>
           </div>
           <div className="mb-4">
-            <label className="block">Preparation:</label>
+            <label className="block">Steps:</label>
             <textarea
-              typeof="text"
-              name="preparation"
               className="border-2  w-full focus:border-green-400 focus:outline-none rounded-md"
-              value={prepatation}
+              value={steps}
               onChange={(e) => setPreparation(e.target.value)}
             ></textarea>
           </div>
