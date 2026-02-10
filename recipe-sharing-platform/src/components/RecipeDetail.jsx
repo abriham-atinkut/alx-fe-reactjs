@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const RecipeDetail = () => {
   const { id } = useParams();
   const [singleRecipe, setSingleRecipe] = useState([]);
-
+  // the instructions is to use useEFfect and covert it to js object
   useEffect(() => {
     fetch("../../src/data.json")
       .then((res) => res.json())
