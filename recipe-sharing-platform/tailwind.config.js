@@ -6,3 +6,6 @@ export default {
   },
   plugins: [],
 };
+
+// when i work on public folder using this instead of ./index.html
+// ./public/index.html
