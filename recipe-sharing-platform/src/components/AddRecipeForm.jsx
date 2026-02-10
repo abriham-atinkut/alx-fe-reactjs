@@ -2,12 +2,20 @@ import { useState } from "react";
 
 const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
-  const [ingredient, setIngredient] = useState("");
+  const [ingredients, setIngredient] = useState("");
   const [steps, setSteps] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    let trimedSteps = steps.trim();
+    let word = trimedSteps.split(/\s+/);
+    if (
+      !title.trim() ||
+      !ingredients.trim() ||
+      !steps.trim() ||
+      word.length == 1
+    )
+      return;
     setTitle("");
     setIngredient("");
     setSteps("");
@@ -30,7 +38,7 @@ const AddRecipeForm = () => {
             <label className="block">Ingredients:</label>
             <textarea
               className="border-2  w-full focus:border-green-400 focus:outline-none rounded-md"
-              value={ingredient}
+              value={ingredients}
               onChange={(e) => setIngredient(e.target.value)}
             ></textarea>
           </div>
@@ -39,7 +47,7 @@ const AddRecipeForm = () => {
             <textarea
               className="border-2  w-full focus:border-green-400 focus:outline-none rounded-md"
               value={steps}
-              onChange={(e) => setPreparation(e.target.value)}
+              onChange={(e) => setSteps(e.target.value)}
             ></textarea>
           </div>
           <div className="flex justify-center">
