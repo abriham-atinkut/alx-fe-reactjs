@@ -4,17 +4,26 @@ const RegisterationForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setErrors] = useState(false);
 
   const fromHandler = (e) => {
     e.preventDefault();
-    if (!username.trim() || !email.trim() || !password.trim()) return;
+    // if (!email), if (!password)
+    if (!username.trim() || !email.trim() || !password.trim()) {
+      setErrors(true);
+      return;
+    }
     setUsername("");
     setEmail("");
     setPassword("");
+    setErrors(false);
   };
   return (
     <div className="h-screen  flex justify-center items-center">
       <form onSubmit={fromHandler} className="shadow-lg p-12">
+        {error && (
+          <p className="text-sm text-red-500">Please Enter full form!</p>
+        )}
         <div>
           <label htmlFor="username" className="block">
             Username
