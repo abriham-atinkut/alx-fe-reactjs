@@ -8,11 +8,15 @@ const fetchPosts = async () => {
   return response.json();
 };
 const PostsComponent = () => {
-  const { isError, data, refetch, isFetched, isLoading } = useQuery({
-    queryKey: ["data"],
-    queryFn: fetchPosts,
-    //   refetchOnWindowFocus: false,
-  });
+  const { isError, data, refetch, isFetched, isLoading, isPreviousData } =
+    useQuery({
+      queryKey: ["data"],
+      queryFn: fetchPosts,
+      staleTime: 1000 * 60 * 10,
+      cacheTime: 1000 * 60 * 5,
+      // placeholderData: keepPreviousData,
+      //   refetchOnWindowFocus: false,
+    });
 
   if (isLoading) return "Loading...";
   if (isFetched && !data) return <div>Log initial data...</div>;
