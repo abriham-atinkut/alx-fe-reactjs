@@ -1,18 +1,22 @@
 import { useQuery } from "react-query";
 
+const fetchPosts = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!response.ok) {
+    throw new Error("Something want worring!");
+  }
+  return response.json();
+};
 const PostsComponent = () => {
-  const { isPending, error, data, refetch, isFetched } = useQuery({
+  const { isError, data, refetch, isFetched, isLoading } = useQuery({
     queryKey: ["data"],
-    queryFn: () =>
-      fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
-        res.json(),
-      ),
+    queryFn: fetchPosts,
     //   refetchOnWindowFocus: false,
   });
 
-  if (isPending) return "Loading...";
+  if (isLoading) return "Loading...";
   if (isFetched && !data) return <div>Log initial data...</div>;
-  if (error) return "An error has occurred: " + error.message;
+  if (isError) return "An error has occurred.";
 
   return (
     <div>
