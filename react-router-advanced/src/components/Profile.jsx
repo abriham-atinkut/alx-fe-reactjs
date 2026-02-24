@@ -1,6 +1,7 @@
 import { Route, Routes, Link } from "react-router-dom";
 import ProfileDetails from "./ProfileDetails";
 import ProfileSettings from "./ProfileSettings";
+
 const Profile = () => {
   return (
     <>
@@ -13,7 +14,7 @@ const Profile = () => {
 
         <Routes>
           <Route path="details" element={<ProfileDetails />} />
-          <Route path="setting" element={<ProfileSettings />} />
+          <Route path="settings" element={<ProfileSettings />} />
         </Routes>
       </div>
     </>
